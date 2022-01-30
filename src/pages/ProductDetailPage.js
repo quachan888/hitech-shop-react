@@ -2,9 +2,11 @@ import { MDBBadge } from "mdb-react-ui-kit";
 import React, { useEffect, useState } from "react";
 import { MDBInput, MDBRow, MDBCol, MDBBtn } from "mdb-react-ui-kit";
 import { useParams } from "react-router-dom";
+import ProductsList from "../components/ProductsList";
 
 function ProductDetailPage() {
     const [product, setProduct] = useState();
+    const [productRelated, setProductRelated] = useState([]);
 
     useEffect(() => {
         getData();
@@ -12,11 +14,23 @@ function ProductDetailPage() {
 
     const { productId } = useParams();
 
-    // Fetch all products data from FakeStoreAPI
+    // Fetch  product detail data from FakeStoreAPI
     async function getData() {
         await fetch(`https://fakestoreapi.com/products/${productId}`)
             .then((res) => res.json())
-            .then((json) => setProduct(json));
+            .then((json) => {
+                setProduct(json);
+
+                getProductRelated(json.category);
+            });
+    }
+
+    async function getProductRelated(catName) {
+        await fetch(
+            `https://fakestoreapi.com/products/category/${catName}?limit=4`,
+        )
+            .then((res) => res.json())
+            .then((json) => setProductRelated(json));
     }
 
     if (product) {
@@ -56,7 +70,7 @@ function ProductDetailPage() {
                             tag="form"
                             className="gy-2 gx-3 align-items-center">
                             <MDBCol size="auto">
-                                <MDBInput id="qty" label="Label" />
+                                <MDBInput id="qty" label="1" />
                             </MDBCol>
 
                             <MDBCol size="auto">
@@ -64,6 +78,14 @@ function ProductDetailPage() {
                             </MDBCol>
                         </MDBRow>
                     </div>
+                </div>
+                <hr />
+                {/* Show related product */}
+                <div className="row p-3">
+                    <h3 className="text-secondary">
+                        Products related to this item
+                    </h3>
+                    <ProductsList products={productRelated} />
                 </div>
             </div>
         );
