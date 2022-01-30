@@ -1,6 +1,9 @@
-# Portfolio Project: Ecommerce website with React + MDBootstrap UI
+# Ecommerce website
 
--   [Github](https://github.com/quachan888/hitech-shop-react)
+## React + MDBootstrap UI
+
+## Nucamp React course: Portfolio Project
+
 -   [Live view](https://quachan888.github.io/hitech-shop-react/)
 
 ---
