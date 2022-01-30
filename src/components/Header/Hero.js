@@ -9,7 +9,7 @@ import {
 export default function Hero() {
     return (
         <MDBCarousel showIndicators showControls>
-            <MDBCarouselInner style={{ height: 400 }}>
+            <MDBCarouselInner style={{ height: 300 }}>
                 <MDBCarouselItem className="active">
                     <MDBCarouselElement
                         src="https://source.unsplash.com/HONJP8DyiSM"

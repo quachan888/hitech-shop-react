@@ -40,7 +40,7 @@ export default function Navbar() {
                         </MDBNavbarItem>
                     </MDBNavbarNav>
 
-                    <a href="#!">
+                    <a href="/checkout">
                         <MDBIcon
                             fas
                             icon="shopping-cart"

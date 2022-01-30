@@ -10,7 +10,7 @@ function ProductDetailPage() {
 
     useEffect(() => {
         getData();
-    }, []);
+    }, [product]);
 
     const { productId } = useParams();
 
@@ -43,7 +43,7 @@ function ProductDetailPage() {
                 ""
             );
         return (
-            <div className="container bg-light my-4 rounded p-3">
+            <div className="container bg-light my-4 rounded-5 p-3">
                 <div className="row wow fadeIn">
                     <div className="col-md-6 mb-4 p-5 text-center">
                         <img
@@ -81,12 +81,10 @@ function ProductDetailPage() {
                 </div>
                 <hr />
                 {/* Show related product */}
-                <div className="row p-3">
-                    <h3 className="text-secondary">
-                        Products related to this item
-                    </h3>
-                    <ProductsList products={productRelated} />
-                </div>
+                <h3 className="text-secondary px-3">
+                    Products related to this item
+                </h3>
+                <ProductsList products={productRelated} />
             </div>
         );
     }
