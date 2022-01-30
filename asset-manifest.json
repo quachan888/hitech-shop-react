@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/%7Bhitech-shop-react%7D/static/css/main.ff2e415e.css",
+    "main.js": "/%7Bhitech-shop-react%7D/static/js/main.5f70324e.js",
+    "static/js/787.5eec1dbb.chunk.js": "/%7Bhitech-shop-react%7D/static/js/787.5eec1dbb.chunk.js",
+    "index.html": "/%7Bhitech-shop-react%7D/index.html",
+    "main.ff2e415e.css.map": "/%7Bhitech-shop-react%7D/static/css/main.ff2e415e.css.map",
+    "main.5f70324e.js.map": "/%7Bhitech-shop-react%7D/static/js/main.5f70324e.js.map",
+    "787.5eec1dbb.chunk.js.map": "/%7Bhitech-shop-react%7D/static/js/787.5eec1dbb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff2e415e.css",
+    "static/js/main.5f70324e.js"
+  ]
+}
