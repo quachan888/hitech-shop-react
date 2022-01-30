@@ -11,35 +11,36 @@ import {
     MDBRipple,
     MDBBadge,
 } from "mdb-react-ui-kit";
+import { formatter } from "../App";
 
 export default function ProductCard(props) {
     const { title, price, category, image, id } = props.product;
     return (
         <MDBCol>
-            <MDBCard className="h-100 py-3 px-1">
+            <MDBCard className="h-100 py-4 px-1">
                 <MDBRipple
                     rippleColor="light"
                     rippleTag="div"
                     className="bg-image hover-overlay">
-                    <MDBBadge pill className="mx-2 mb-4" color="warning">
+                    {/* <MDBBadge pill className="mx-2 mb-4" color="warning">
                         {category[0].toUpperCase()}
                         {category.slice(1)}
-                    </MDBBadge>
+                    </MDBBadge> */}
                     <Link to={`/product/${id}`}>
                         <MDBCardImage
                             src={image}
                             alt={title}
                             position="top"
-                            className="product-image"
+                            className="product-image p-4"
                         />
                     </Link>
-                    <MDBCardBody className="text-center">
-                        <MDBCardTitle className="text-primary fs-3">
-                            ${price}
-                        </MDBCardTitle>
+                    <MDBCardBody>
                         <MDBCardText className="fw-bold fs-5 product-title">
                             {title}
                         </MDBCardText>
+                        <MDBCardTitle className="text-dark fs-3">
+                            {formatter.format(price)}
+                        </MDBCardTitle>
                     </MDBCardBody>
                 </MDBRipple>
             </MDBCard>

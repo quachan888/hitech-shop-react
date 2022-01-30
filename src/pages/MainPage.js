@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-
 import ProductsList from "../components/ProductsList";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 function MainPage() {
     const [products, setProducts] = useState([]);
@@ -16,11 +16,15 @@ function MainPage() {
             .then((json) => setProducts(json));
     }
 
-    return (
-        <div className="container my-5">
-            <ProductsList products={products} />
-        </div>
-    );
+    if (products) {
+        return (
+            <div className="container my-5">
+                <ProductsList products={products} />
+            </div>
+        );
+    }
+
+    return <LoadingSpinner />;
 }
 
 export default MainPage;

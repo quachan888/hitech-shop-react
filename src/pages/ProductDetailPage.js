@@ -1,8 +1,10 @@
 import { MDBBadge } from "mdb-react-ui-kit";
 import React, { useEffect, useState } from "react";
-import { MDBInput, MDBRow, MDBCol, MDBBtn } from "mdb-react-ui-kit";
+import { MDBInput, MDBRow, MDBCol, MDBBtn, MDBSpinner } from "mdb-react-ui-kit";
 import { useParams } from "react-router-dom";
 import ProductsList from "../components/ProductsList";
+import { formatter } from "../App";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 function ProductDetailPage() {
     const [product, setProduct] = useState();
@@ -59,7 +61,9 @@ function ProductDetailPage() {
                                 product.category.slice(1)}
                         </MDBBadge>
                         {bestSellerBadge}
-                        <h2 className="my-3">${product.price}</h2>
+                        <h2 className="my-3">
+                            {formatter.format(product.price)}
+                        </h2>
                         <h4 className="text-primary">{product.title}</h4>
                         <div className="row fs-5 my-3 fw-bold">Description</div>
                         <p>
@@ -88,7 +92,7 @@ function ProductDetailPage() {
             </div>
         );
     }
-    return <h1>No data</h1>;
+    return <LoadingSpinner />;
 }
 
 export default ProductDetailPage;
