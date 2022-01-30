@@ -45,8 +45,9 @@ function ProductDetailPage() {
                 ""
             );
         return (
-            <div className="container bg-light my-4 rounded-5 p-3">
-                <div className="row wow fadeIn">
+            // <div className="container bg-light my-4 rounded-5 p-3">
+            <div className="container my-5 bg-light p-3 rounded-5">
+                <div className="row m-3">
                     <div className="col-md-6 mb-4 p-5 text-center">
                         <img
                             src={product.image}
@@ -55,7 +56,7 @@ function ProductDetailPage() {
                             style={{ height: 500 }}
                         />
                     </div>
-                    <div className="col-5 my-5">
+                    <div className="col my-5">
                         <MDBBadge color="warning">
                             {product.category[0].toUpperCase() +
                                 product.category.slice(1)}
@@ -78,7 +79,7 @@ function ProductDetailPage() {
                             </MDBCol>
 
                             <MDBCol size="auto">
-                                <MDBBtn type="submit">ADD TO CART </MDBBtn>
+                                <MDBBtn type="submit">ADD TO CART</MDBBtn>
                             </MDBCol>
                         </MDBRow>
                     </div>
