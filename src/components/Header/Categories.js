@@ -30,9 +30,13 @@ export default function Categories() {
     }
 
     return (
-        <MDBNavbar expand="lg" light bgColor="light">
-            <MDBContainer className="container">
-                <MDBNavbarBrand href="#">Categories: </MDBNavbarBrand>
+        <MDBNavbar
+            expand="lg"
+            light
+            bgColor="light"
+            className="shadow-2-strong">
+            <MDBContainer className="container p-4">
+                {/* <MDBNavbarBrand href="#">Categories: </MDBNavbarBrand> */}
 
                 <MDBNavbarToggler
                     aria-controls="navbarSupportedContent"

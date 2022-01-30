@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import LoadingSpinner from "../components/LoadingSpinner";
 import ProductsList from "../components/ProductsList";
 
 function CategoryPage() {
@@ -20,11 +20,15 @@ function CategoryPage() {
         setProducts(data);
     }
 
-    return (
-        <div className="container my-5">
-            <ProductsList products={productsByCat} />
-        </div>
-    );
+    if (productsByCat) {
+        return (
+            <div className="container my-5">
+                <ProductsList products={productsByCat} />
+            </div>
+        );
+    }
+
+    return <LoadingSpinner />;
 }
 
 export default CategoryPage;
