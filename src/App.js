@@ -2,27 +2,29 @@ import "./App.css";
 import Footer from "./components/Footer";
 import MainPage from "./pages/MainPage";
 import Header from "./components/Header/Header";
-import { useEffect, useState } from "react";
+import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        getData();
-    }, []);
-
-    async function getData() {
-        const response = await fetch("https://fakestoreapi.com/products");
-        const data = await response.json();
-        setProducts(data);
+    function TestId({ match }) {
+        return <h1>ID CAT = {match.params.catName}</h1>;
     }
 
     return (
-        <div className="App">
-            <Header />
-            <MainPage products={products} />
-            <Footer />
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Header />
+
+                <Switch>
+                    <Route exact path="/" component={MainPage} />
+                    <Route path="/cat/:catName" component={CategoryPage} />
+
+                    <Redirect to="/" />
+                </Switch>
+
+                <Footer />
+            </div>
+        </BrowserRouter>
     );
 }
 

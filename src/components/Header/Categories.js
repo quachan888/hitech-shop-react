@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     MDBContainer,
     MDBNavbar,
@@ -14,6 +14,21 @@ import {
 
 export default function Categories() {
     const [showBasic, setShowBasic] = useState(false);
+
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        getCategories();
+    }, []);
+
+    async function getCategories() {
+        const response = await fetch(
+            "https://fakestoreapi.com/products/categories",
+        );
+        const data = await response.json();
+        setCategories(data);
+    }
+
     return (
         <MDBNavbar expand="lg" light bgColor="light">
             <MDBContainer className="container">
@@ -30,26 +45,15 @@ export default function Categories() {
                 <MDBCollapse navbar show={showBasic}>
                     <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
                         <MDBNavbarItem>
-                            <MDBNavbarLink href="#" active>
-                                All
-                            </MDBNavbarLink>
+                            <MDBNavbarLink href="/">All</MDBNavbarLink>
                         </MDBNavbarItem>
-                        <MDBNavbarItem>
-                            <MDBNavbarLink href="#">Electronics</MDBNavbarLink>
-                        </MDBNavbarItem>
-                        <MDBNavbarItem>
-                            <MDBNavbarLink href="#">Jewelery</MDBNavbarLink>
-                        </MDBNavbarItem>
-                        <MDBNavbarItem>
-                            <MDBNavbarLink href="#">
-                                Men's clothing
-                            </MDBNavbarLink>
-                        </MDBNavbarItem>
-                        <MDBNavbarItem>
-                            <MDBNavbarLink href="#">
-                                Women's clothing
-                            </MDBNavbarLink>
-                        </MDBNavbarItem>
+                        {categories.map((cat, index) => (
+                            <MDBNavbarItem key={index}>
+                                <MDBNavbarLink href={`/cat/${cat}`}>
+                                    {cat[0].toUpperCase() + cat.slice(1)}{" "}
+                                </MDBNavbarLink>
+                            </MDBNavbarItem>
+                        ))}
                     </MDBNavbarNav>
 
                     <form className="d-flex input-group w-auto">

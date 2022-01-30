@@ -33,7 +33,7 @@ export default function ProductCard(props) {
                         className="product-image"
                     />
                     <MDBCardBody className="text-center">
-                        <MDBCardTitle className="text-dark fs-3">
+                        <MDBCardTitle className="text-primary fs-3">
                             ${price}
                         </MDBCardTitle>
                         <MDBCardText className="fw-bold fs-5 product-title">
