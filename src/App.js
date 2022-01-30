@@ -7,6 +7,7 @@ import CategoryPage from "./pages/CategoryPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CheckOutPage from "./pages/CheckOutPage";
 import LoginPage from "./pages/LoginPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     />
                     <Route exact path="/checkout" component={CheckOutPage} />
                     <Route exact path="/login" component={LoginPage} />
+                    <Route exact path="/contact" component={ContactPage} />
                     <Redirect to="/" />
                 </Switch>
 
