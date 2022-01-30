@@ -4,12 +4,9 @@ import MainPage from "./pages/MainPage";
 import Header from "./components/Header/Header";
 import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
 import CategoryPage from "./pages/CategoryPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 function App() {
-    function TestId({ match }) {
-        return <h1>ID CAT = {match.params.catName}</h1>;
-    }
-
     return (
         <BrowserRouter>
             <div className="App">
@@ -18,7 +15,10 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={MainPage} />
                     <Route path="/cat/:catName" component={CategoryPage} />
-
+                    <Route
+                        path="/product/:productId"
+                        component={ProductDetailPage}
+                    />
                     <Redirect to="/" />
                 </Switch>
 

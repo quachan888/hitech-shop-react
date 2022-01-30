@@ -8,7 +8,6 @@ import {
     MDBNavbarNav,
     MDBNavbarItem,
     MDBNavbarLink,
-    MDBBtn,
     MDBBadge,
     MDBCollapse,
 } from "mdb-react-ui-kit";
@@ -18,7 +17,7 @@ export default function Navbar() {
     return (
         <MDBNavbar expand="lg" dark bgColor="dark">
             <MDBContainer className="container">
-                <MDBNavbarBrand href="#">
+                <MDBNavbarBrand href="/">
                     <MDBIcon fas icon="plug" color="danger" size="lg" />
                     &nbsp; HITECH SHOP
                 </MDBNavbarBrand>

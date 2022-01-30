@@ -9,10 +9,11 @@ function MainPage() {
         getData();
     }, []);
 
+    // Fetch all products data from FakeStoreAPI
     async function getData() {
-        const response = await fetch("https://fakestoreapi.com/products");
-        const data = await response.json();
-        setProducts(data);
+        await fetch("https://fakestoreapi.com/products")
+            .then((res) => res.json())
+            .then((json) => setProducts(json));
     }
 
     return <ProductsList products={products} />;

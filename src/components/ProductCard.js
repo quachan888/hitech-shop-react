@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+
 import {
     MDBCard,
     MDBCardImage,
     MDBCardBody,
     MDBCardTitle,
-    MDBBtn,
     MDBCol,
     MDBCardText,
     MDBRipple,
-    MDBCardFooter,
-    MDBIcon,
     MDBBadge,
 } from "mdb-react-ui-kit";
 
 export default function ProductCard(props) {
-    const { id, title, price, category, image } = props.product;
+    const { title, price, category, image, id } = props.product;
     return (
         <MDBCol>
             <MDBCard className="h-100 py-3 px-1">
@@ -26,12 +25,14 @@ export default function ProductCard(props) {
                         {category[0].toUpperCase()}
                         {category.slice(1)}
                     </MDBBadge>
-                    <MDBCardImage
-                        src={image}
-                        alt={title}
-                        position="top"
-                        className="product-image"
-                    />
+                    <Link to={`/product/${id}`}>
+                        <MDBCardImage
+                            src={image}
+                            alt={title}
+                            position="top"
+                            className="product-image"
+                        />
+                    </Link>
                     <MDBCardBody className="text-center">
                         <MDBCardTitle className="text-primary fs-3">
                             ${price}

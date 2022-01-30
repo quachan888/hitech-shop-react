@@ -8,7 +8,7 @@ function CategoryPage() {
 
     useEffect(() => {
         getData();
-    }, []);
+    });
 
     const { catName } = useParams();
 
