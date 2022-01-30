@@ -6,6 +6,7 @@ import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
 import CategoryPage from "./pages/CategoryPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CheckOutPage from "./pages/CheckOutPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                         component={ProductDetailPage}
                     />
                     <Route exact path="/checkout" component={CheckOutPage} />
+                    <Route exact path="/login" component={LoginPage} />
                     <Redirect to="/" />
                 </Switch>
 

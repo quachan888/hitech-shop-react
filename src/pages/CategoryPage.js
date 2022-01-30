@@ -20,7 +20,11 @@ function CategoryPage() {
         setProducts(data);
     }
 
-    return <ProductsList products={productsByCat} />;
+    return (
+        <div className="container my-5">
+            <ProductsList products={productsByCat} />
+        </div>
+    );
 }
 
 export default CategoryPage;

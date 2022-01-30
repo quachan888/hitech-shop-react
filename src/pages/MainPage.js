@@ -16,7 +16,11 @@ function MainPage() {
             .then((json) => setProducts(json));
     }
 
-    return <ProductsList products={products} />;
+    return (
+        <div className="container my-5">
+            <ProductsList products={products} />
+        </div>
+    );
 }
 
 export default MainPage;
