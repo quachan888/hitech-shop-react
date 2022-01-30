@@ -22,10 +22,10 @@ export default function ProductCard(props) {
                     rippleColor="light"
                     rippleTag="div"
                     className="bg-image hover-overlay">
-                    {/* <MDBBadge pill className="mx-2 mb-4" color="warning">
+                    <MDBBadge pill className="mx-2 mb-4" color="warning">
                         {category[0].toUpperCase()}
                         {category.slice(1)}
-                    </MDBBadge> */}
+                    </MDBBadge>
                     <Link to={`/product/${id}`}>
                         <MDBCardImage
                             src={image}
