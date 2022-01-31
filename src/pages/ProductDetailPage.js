@@ -45,8 +45,7 @@ function ProductDetailPage() {
                 ""
             );
         return (
-            // <div className="container bg-light my-4 rounded-5 p-3">
-            <div className="container my-5 bg-light p-3 rounded-5">
+            <div className="container my-3 bg-light p-3 rounded">
                 <div className="row m-3">
                     <div className="col-md-6 mb-4 p-5 text-center">
                         <img

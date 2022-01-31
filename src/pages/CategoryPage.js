@@ -22,7 +22,8 @@ function CategoryPage() {
 
     if (productsByCat) {
         return (
-            <div className="container my-5">
+            <div className="container my-3 rounded">
+                {/* <div className="container my-3 bg-light p-3 rounded"></div> */}
                 <ProductsList products={productsByCat} />
             </div>
         );

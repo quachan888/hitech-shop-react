@@ -21,7 +21,7 @@ export const formatter = new Intl.NumberFormat("en-US", {
 function App() {
     return (
         <BrowserRouter>
-            <div className="App">
+            <div className="App d-flex flex-column min-vh-100">
                 <Header />
 
                 <Switch>

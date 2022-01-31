@@ -7,7 +7,6 @@ export default function Header() {
     return (
         <header>
             <Navbar />
-            <Hero />
             <Categories />
         </header>
     );

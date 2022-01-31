@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductsList from "../components/ProductsList";
 import LoadingSpinner from "../components/LoadingSpinner";
+import Hero from "../components/Header/Hero";
 
 function MainPage() {
     const [products, setProducts] = useState([]);
@@ -18,9 +19,12 @@ function MainPage() {
 
     if (products) {
         return (
-            <div className="container my-5">
-                <ProductsList products={products} />
-            </div>
+            <>
+                <Hero />
+                <div className="container my-3 rounded">
+                    <ProductsList products={products} />
+                </div>
+            </>
         );
     }
 

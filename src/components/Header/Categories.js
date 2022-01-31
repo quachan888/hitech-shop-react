@@ -8,6 +8,7 @@ import {
     MDBNavbarItem,
     MDBNavbarLink,
     MDBBtn,
+    MDBNavbarBrand,
     MDBCollapse,
 } from "mdb-react-ui-kit";
 
@@ -34,8 +35,8 @@ export default function Categories() {
             light
             bgColor="light"
             className="shadow-2-strong">
-            <MDBContainer className="container p-4">
-                {/* <MDBNavbarBrand href="#">Categories: </MDBNavbarBrand> */}
+            <MDBContainer className="container ">
+                <MDBNavbarBrand href="#">Categories: </MDBNavbarBrand>
 
                 <MDBNavbarToggler
                     aria-controls="navbarSupportedContent"
