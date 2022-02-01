@@ -1,63 +1,63 @@
 # Ecommerce website
 
-## React + MDBootstrap UI
+-   React + MDBootstrap UI
 
-## Nucamp React course: Portfolio Project
+-   **Nucamp React course**: Portfolio Project
 
 -   [Live view](https://quachan888.github.io/hitech-shop-react/)
 
 ---
 
-# Screenshot
+## Screenshot
 
-### Category Page
+#### Category Page
 
 ![alt text](https://github.com/quachan888/hitech-shop-react/blob/main/screenshots/screenshot-cat.png?raw=true)
 
-### Product detail page
+#### Product detail page
 
 ![alt text](https://github.com/quachan888/hitech-shop-react/blob/main/screenshots/screenshot-detail.png?raw=true)
 
-### Check out page
+#### Check out page
 
 ![alt text](https://github.com/quachan888/hitech-shop-react/blob/main/screenshots/screenshot-checkout.png?raw=true)
 
 Github link: https://github.com/quachan888/hitech-shop-react
 
-# Finish tasks
+---
 
-- Load products from API
+## Finished tasks
 
-- Setup React render dom to multiple pages with params
+-   Load products from FakeStoreAPI
 
-- Pages:
+-   Setup React render dom to multiple pages with params
 
-  - Main page: list all products
+-   Pages:
 
-  - Category page: list only products inside category
+    -   Main page: list all products
 
-  - Product detail
+    -   Category page: list only products inside category
 
-  - Checkout: with a cart summary 
+    -   Product detail
 
-  - Contact
+    -   Checkout: with a cart summary
 
-  - Login/Registry
+    -   Contact
 
+    -   Login/Registry
 
+## Todo list
 
-# Todo list
+-   Cart function:
 
-- Cart function: 
+    -   Add product to cart
 
-  - Add product to cart
+    -   Show real cart items on Checkout
 
-  - Show real cart items on Checkout
+-   Login/signout
 
-- Login/signout
+-   User register
 
-- User register
+-   Search function
 
-- Search function
-
-- Admin dashboard
+-   Admin dashboard

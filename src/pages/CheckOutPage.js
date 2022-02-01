@@ -15,6 +15,7 @@ import {
     MDBBtn,
 } from "mdb-react-ui-kit";
 import { formatter } from "../App";
+import MetaData from "../components/MetaData";
 
 function CheckOutPage() {
     const [cartProducts, setCartProducts] = useState([]);
@@ -33,6 +34,8 @@ function CheckOutPage() {
 
     return (
         <div className="container p-3 bg-white my-4 rounded-5">
+            <MetaData title={"Check out"} />
+
             <div className="row m-3">
                 <h1 className="my-3 text-center">Checkout</h1>
                 {/* FORM PAYMENT */}

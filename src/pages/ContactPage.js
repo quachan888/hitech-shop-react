@@ -1,9 +1,11 @@
 import React from "react";
 import { MDBInput, MDBCheckbox, MDBBtn } from "mdb-react-ui-kit";
+import MetaData from "../components/MetaData";
 
 function ContactPage() {
     return (
         <div className="container my-4 rounded-5 p-3 bg-light">
+            <MetaData title={"Contact Us"} />
             <div className="row">
                 <div className="col-md-6 p-5">
                     <h1>Contact Us</h1>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ProductsList from "../components/ProductsList";
 import LoadingSpinner from "../components/LoadingSpinner";
 import Hero from "../components/Header/Hero";
+import MetaData from "../components/MetaData";
 
 function MainPage() {
     const [products, setProducts] = useState([]);
@@ -19,10 +20,13 @@ function MainPage() {
 
     if (products) {
         return (
-            <div className="container my-3 rounded">
-                <Hero />
-                <ProductsList products={products} />
-            </div>
+            <>
+                <MetaData title={"Best Online Shop For Developers"} />
+                <div className="container my-3 rounded">
+                    <Hero />
+                    <ProductsList products={products} />
+                </div>
+            </>
         );
     }
 

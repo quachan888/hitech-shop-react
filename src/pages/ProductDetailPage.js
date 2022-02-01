@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import ProductsList from "../components/ProductsList";
 import { formatter } from "../App";
 import LoadingSpinner from "../components/LoadingSpinner";
+import MetaData from "../components/MetaData";
 
 function ProductDetailPage() {
     const [product, setProduct] = useState();
@@ -46,13 +47,14 @@ function ProductDetailPage() {
             );
         return (
             <div className="container my-3 bg-white p-3 rounded">
+                <MetaData title={`${product.title}`} />
                 <div className="row m-3">
                     <div className="col-md-6 mb-4 p-5 text-center">
                         <img
                             src={product.image}
                             alt={product.title}
                             className="img-fluid"
-                            style={{ maxHeight: "50" }}
+                            style={{ height: 400, maxHeight: "400" }}
                         />
                     </div>
                     <div className="col my-5">

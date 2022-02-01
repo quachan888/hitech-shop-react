@@ -12,6 +12,7 @@ import {
     MDBTabsContent,
     MDBTabsPane,
 } from "mdb-react-ui-kit";
+import MetaData from "../components/MetaData";
 
 export default function LoginPage() {
     const [loginRegisterActive, setloginRegisterActive] = useState("login");
@@ -25,6 +26,7 @@ export default function LoginPage() {
 
     return (
         <div className="container p-5 bg-light my-4 rounded-5 d-flex justify-content-center">
+            <MetaData title={"Login"} />
             <div style={{ width: "30rem" }}>
                 <MDBTabs pills justify className="mb-3">
                     <MDBTabsItem>
