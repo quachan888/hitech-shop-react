@@ -45,14 +45,14 @@ function ProductDetailPage() {
                 ""
             );
         return (
-            <div className="container my-3 bg-light p-3 rounded">
+            <div className="container my-3 bg-white p-3 rounded">
                 <div className="row m-3">
                     <div className="col-md-6 mb-4 p-5 text-center">
                         <img
                             src={product.image}
                             alt={product.title}
                             className="img-fluid"
-                            style={{ height: 500 }}
+                            style={{ maxHeight: "50" }}
                         />
                     </div>
                     <div className="col my-5">

@@ -30,11 +30,7 @@ export default function Categories() {
     }
 
     return (
-        <MDBNavbar
-            expand="lg"
-            light
-            bgColor="light"
-            className="shadow-2-strong">
+        <MDBNavbar expand="lg" light bgColor="light" className="shadow mb-3">
             <MDBContainer className="container ">
                 <MDBNavbarBrand href="#">Categories: </MDBNavbarBrand>
 

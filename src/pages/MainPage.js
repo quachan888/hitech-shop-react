@@ -19,12 +19,10 @@ function MainPage() {
 
     if (products) {
         return (
-            <>
+            <div className="container my-3 rounded">
                 <Hero />
-                <div className="container my-3 rounded">
-                    <ProductsList products={products} />
-                </div>
-            </>
+                <ProductsList products={products} />
+            </div>
         );
     }
 
