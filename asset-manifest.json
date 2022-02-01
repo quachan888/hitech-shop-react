@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/hitech-shop-react/static/css/main.ff2e415e.css",
-    "main.js": "/hitech-shop-react/static/js/main.13ea0c4b.js",
+    "main.css": "/hitech-shop-react/static/css/main.1dfb78aa.css",
+    "main.js": "/hitech-shop-react/static/js/main.cedc4f38.js",
     "static/js/787.5eec1dbb.chunk.js": "/hitech-shop-react/static/js/787.5eec1dbb.chunk.js",
     "index.html": "/hitech-shop-react/index.html",
-    "main.ff2e415e.css.map": "/hitech-shop-react/static/css/main.ff2e415e.css.map",
-    "main.13ea0c4b.js.map": "/hitech-shop-react/static/js/main.13ea0c4b.js.map",
+    "main.1dfb78aa.css.map": "/hitech-shop-react/static/css/main.1dfb78aa.css.map",
+    "main.cedc4f38.js.map": "/hitech-shop-react/static/js/main.cedc4f38.js.map",
     "787.5eec1dbb.chunk.js.map": "/hitech-shop-react/static/js/787.5eec1dbb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff2e415e.css",
-    "static/js/main.13ea0c4b.js"
+    "static/css/main.1dfb78aa.css",
+    "static/js/main.cedc4f38.js"
   ]
 }
