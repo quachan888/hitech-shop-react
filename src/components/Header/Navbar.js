@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
     MDBContainer,
     MDBNavbar,
@@ -9,8 +9,8 @@ import {
     MDBNavbarItem,
     MDBNavbarLink,
     MDBBadge,
-    MDBCollapse,
-} from "mdb-react-ui-kit";
+    MDBCollapse
+} from 'mdb-react-ui-kit';
 
 export default function Navbar() {
     const [showBasic, setShowBasic] = useState(false);
@@ -26,16 +26,15 @@ export default function Navbar() {
                     aria-controls="navbarSupportedContent"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
-                    onClick={() => setShowBasic(!showBasic)}>
+                    onClick={() => setShowBasic(!showBasic)}
+                >
                     <MDBIcon icon="bars" fas />
                 </MDBNavbarToggler>
 
                 <MDBCollapse navbar show={showBasic}>
                     <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
                         <MDBNavbarItem>
-                            <MDBNavbarLink href="/contact">
-                                Contact Us
-                            </MDBNavbarLink>
+                            <MDBNavbarLink href="/contact">Contact Us</MDBNavbarLink>
                         </MDBNavbarItem>
                         <MDBNavbarItem>
                             <MDBNavbarLink href="/login">Login</MDBNavbarLink>
@@ -43,12 +42,7 @@ export default function Navbar() {
                     </MDBNavbarNav>
 
                     <a href="/checkout">
-                        <MDBIcon
-                            fas
-                            icon="shopping-cart"
-                            size="lg"
-                            color="white"
-                        />
+                        <MDBIcon fas icon="shopping-cart" size="lg" color="white" />
                         <MDBBadge color="danger" notification pill>
                             2
                         </MDBBadge>

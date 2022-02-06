@@ -1,10 +1,13 @@
 # Ecommerce website
 
--   React + MDBootstrap UI
+**Nucamp React course**: Portfolio Project
 
--   **Nucamp React course**: Portfolio Project
+-   [Live view (Firebase)](https://hitech-react-shop.web.app/)
 
--   [Live view](https://quachan888.github.io/hitech-shop-react/)
+### Tools I use
+
+-   React
+-   UI kit: Bootstrap + MDBootstrap
 
 ---
 
@@ -26,38 +29,26 @@ Github link: https://github.com/quachan888/hitech-shop-react
 
 ---
 
-## Finished tasks
+#Process
 
--   Load products from FakeStoreAPI
-
--   Setup React render dom to multiple pages with params
-
--   Pages:
-
-    -   Main page: list all products
-
-    -   Category page: list only products inside category
-
-    -   Product detail
-
-    -   Checkout: with a cart summary
-
-    -   Contact
-
-    -   Login/Registry
-
-## Todo list
-
--   Cart function:
-
-    -   Add product to cart
-
-    -   Show real cart items on Checkout
-
--   Login/signout
-
--   User register
-
--   Search function
-
--   Admin dashboard
+-   [x] Load products from FakeStoreAPI
+-   [x] Setup React render dom to multiple pages with params
+-   [x] Create and nested Components from static Bootstrap layout
+-   [x] Pages
+    -   [x] Main page: list all products
+    -   [x] Category page: list only products inside category
+    -   [x] Product detail Page
+        -   [x] Show relative products
+    -   [x] Checkout Page: with a cart summary
+    -   [x] Contact Page
+    -   [x] Login/Registry Page
+-   [ ] Cart function
+    -   [ ] Add product to cart
+    -   [ ] Add / Remove items
+-   [ ] User register
+-   [ ] Login/Logout function
+-   [x] Search function
+-   [ ] Admin dashboard
+    -   [ ] Category: Add/remove/Edit
+    -   [ ] Product: Add/Remove/Edit
+    -   [ ] Sales Report

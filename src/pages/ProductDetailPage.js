@@ -28,7 +28,7 @@ function ProductDetailPage() {
         };
 
         fetchData().catch(console.error);
-    }, []);
+    }, [productId]);
 
     if (product) {
         const bestSellerBadge =
