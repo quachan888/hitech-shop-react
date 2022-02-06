@@ -9,7 +9,7 @@ import MetaData from '../components/MetaData';
 
 function ProductDetailPage() {
     const [product, setProduct] = useState();
-    const [productRelated, setProductRelated] = useState([]);
+    const [productRelated, setProductRelated] = useState();
     const { productId } = useParams();
 
     useEffect(() => {
@@ -17,23 +17,17 @@ function ProductDetailPage() {
         const fetchData = async () => {
             const product = await fetch(`https://fakestoreapi.com/products/${productId}`);
             const productJSON = await product.json();
+
+            // Fetch 2:  Get related product from this product category
+            const relatedProducts = await fetch(
+                `https://fakestoreapi.com/products/category/${productJSON.category}?limit=4`
+            );
+            const products = await relatedProducts.json();
+            setProductRelated(products);
             setProduct(productJSON);
         };
 
-        // Fetch 2:  Get related product from this product category
-        const fetchProductRelated = async () => {
-            const relatedProducts = await fetch(
-                `https://fakestoreapi.com/products/category/${product.category}?limit=4`
-            );
-            const relatedProductsJSON = await relatedProducts.json();
-            setProductRelated(relatedProductsJSON);
-        };
-
-        fetchData()
-            .then(() => {
-                fetchProductRelated().catch(console.error);
-            })
-            .catch(console.error);
+        fetchData().catch(console.error);
     }, []);
 
     if (product) {
