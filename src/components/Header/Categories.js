@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
     MDBContainer,
     MDBNavbar,
@@ -9,12 +9,11 @@ import {
     MDBNavbarLink,
     MDBBtn,
     MDBNavbarBrand,
-    MDBCollapse,
-} from "mdb-react-ui-kit";
+    MDBCollapse
+} from 'mdb-react-ui-kit';
 
 export default function Categories() {
     const [showBasic, setShowBasic] = useState(false);
-
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -22,9 +21,7 @@ export default function Categories() {
     }, []);
 
     async function getCategories() {
-        const response = await fetch(
-            "https://fakestoreapi.com/products/categories",
-        );
+        const response = await fetch('https://fakestoreapi.com/products/categories');
         const data = await response.json();
         setCategories(data);
     }
@@ -38,7 +35,8 @@ export default function Categories() {
                     aria-controls="navbarSupportedContent"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
-                    onClick={() => setShowBasic(!showBasic)}>
+                    onClick={() => setShowBasic(!showBasic)}
+                >
                     <MDBIcon icon="bars" fas />
                 </MDBNavbarToggler>
 
@@ -50,18 +48,19 @@ export default function Categories() {
                         {categories.map((cat, index) => (
                             <MDBNavbarItem key={index}>
                                 <MDBNavbarLink href={`/cat/${cat}`}>
-                                    {cat[0].toUpperCase() + cat.slice(1)}{" "}
+                                    {cat[0].toUpperCase() + cat.slice(1)}{' '}
                                 </MDBNavbarLink>
                             </MDBNavbarItem>
                         ))}
                     </MDBNavbarNav>
 
-                    <form className="d-flex input-group w-auto">
+                    <form className="d-flex input-group w-auto" action="/search" method="GET">
                         <input
                             type="search"
                             className="form-control"
                             placeholder="Search..."
                             aria-label="Search"
+                            name="search_query"
                         />
                         <MDBBtn>
                             <MDBIcon fas icon="search" />

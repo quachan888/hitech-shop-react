@@ -1,40 +1,40 @@
-import { MDBBadge } from "mdb-react-ui-kit";
-import React, { useEffect, useState } from "react";
-import { MDBInput, MDBRow, MDBCol, MDBBtn, MDBSpinner } from "mdb-react-ui-kit";
-import { useParams } from "react-router-dom";
-import ProductsList from "../components/ProductsList";
-import { formatter } from "../App";
-import LoadingSpinner from "../components/LoadingSpinner";
-import MetaData from "../components/MetaData";
+import { MDBBadge } from 'mdb-react-ui-kit';
+import React, { useEffect, useState } from 'react';
+import { MDBInput, MDBRow, MDBCol, MDBBtn, MDBSpinner } from 'mdb-react-ui-kit';
+import { useParams } from 'react-router-dom';
+import ProductsList from '../components/ProductsList';
+import { formatter } from '../App';
+import LoadingSpinner from '../components/LoadingSpinner';
+import MetaData from '../components/MetaData';
 
 function ProductDetailPage() {
     const [product, setProduct] = useState();
     const [productRelated, setProductRelated] = useState([]);
-
-    useEffect(() => {
-        getData();
-    }, [product]);
-
     const { productId } = useParams();
 
-    // Fetch  product detail data from FakeStoreAPI
-    async function getData() {
-        await fetch(`https://fakestoreapi.com/products/${productId}`)
-            .then((res) => res.json())
-            .then((json) => {
-                setProduct(json);
+    useEffect(() => {
+        // Fetch 1: get product detail
+        const fetchData = async () => {
+            const product = await fetch(`https://fakestoreapi.com/products/${productId}`);
+            const productJSON = await product.json();
+            setProduct(productJSON);
+        };
 
-                getProductRelated(json.category);
-            });
-    }
+        // Fetch 2:  Get related product from this product category
+        const fetchProductRelated = async () => {
+            const relatedProducts = await fetch(
+                `https://fakestoreapi.com/products/category/${product.category}?limit=4`
+            );
+            const relatedProductsJSON = await relatedProducts.json();
+            setProductRelated(relatedProductsJSON);
+        };
 
-    async function getProductRelated(catName) {
-        await fetch(
-            `https://fakestoreapi.com/products/category/${catName}?limit=4`,
-        )
-            .then((res) => res.json())
-            .then((json) => setProductRelated(json));
-    }
+        fetchData()
+            .then(() => {
+                fetchProductRelated().catch(console.error);
+            })
+            .catch(console.error);
+    }, []);
 
     if (product) {
         const bestSellerBadge =
@@ -43,7 +43,7 @@ function ProductDetailPage() {
                     Best Seller
                 </MDBBadge>
             ) : (
-                ""
+                ''
             );
         return (
             <div className="container my-3 bg-white p-3 rounded">
@@ -54,27 +54,19 @@ function ProductDetailPage() {
                             src={product.image}
                             alt={product.title}
                             className="img-fluid"
-                            style={{ height: 400, maxHeight: "400" }}
+                            style={{ height: 400, maxHeight: '400' }}
                         />
                     </div>
                     <div className="col my-5">
                         <MDBBadge color="warning">
-                            {product.category[0].toUpperCase() +
-                                product.category.slice(1)}
+                            {product.category[0].toUpperCase() + product.category.slice(1)}
                         </MDBBadge>
                         {bestSellerBadge}
-                        <h2 className="my-3">
-                            {formatter.format(product.price)}
-                        </h2>
+                        <h2 className="my-3">{formatter.format(product.price)}</h2>
                         <h4 className="text-primary">{product.title}</h4>
                         <div className="row fs-5 my-3 fw-bold">Description</div>
-                        <p>
-                            {product.description[0].toUpperCase() +
-                                product.description.slice(1)}
-                        </p>
-                        <MDBRow
-                            tag="form"
-                            className="gy-2 gx-3 align-items-center">
+                        <p>{product.description[0].toUpperCase() + product.description.slice(1)}</p>
+                        <MDBRow tag="form" className="gy-2 gx-3 align-items-center">
                             <MDBCol size="auto">
                                 <MDBInput id="qty" label="1" />
                             </MDBCol>
@@ -87,9 +79,7 @@ function ProductDetailPage() {
                 </div>
                 <hr />
                 {/* Show related product */}
-                <h3 className="text-secondary px-3">
-                    Products related to this item
-                </h3>
+                <h3 className="text-secondary px-3">Products related to this item</h3>
                 <ProductsList products={productRelated} />
             </div>
         );

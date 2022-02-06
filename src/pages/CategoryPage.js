@@ -1,27 +1,23 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import LoadingSpinner from "../components/LoadingSpinner";
-import MetaData from "../components/MetaData";
-import ProductsList from "../components/ProductsList";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import LoadingSpinner from '../components/LoadingSpinner';
+import MetaData from '../components/MetaData';
+import ProductsList from '../components/ProductsList';
 
 function CategoryPage() {
     const [productsByCat, setProducts] = useState([]);
+    const { catName } = useParams();
+    const catTitle = catName[0].toUpperCase() + catName.slice(1);
 
     useEffect(() => {
-        getData();
-    }, [productsByCat]);
+        const fetchData = async () => {
+            const data = await fetch(`https://fakestoreapi.com/products/category/${catName}`);
+            const json = await data.json();
+            setProducts(json);
+        };
 
-    const { catName } = useParams();
-
-    async function getData() {
-        const response = await fetch(
-            `https://fakestoreapi.com/products/category/${catName}`,
-        );
-        const data = await response.json();
-        setProducts(data);
-    }
-
-    const catTitle = catName[0].toUpperCase() + catName.slice(1);
+        fetchData().catch(console.error);
+    }, []);
 
     if (productsByCat) {
         return (

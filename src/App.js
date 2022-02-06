@@ -1,17 +1,18 @@
-import "./App.css";
-import Footer from "./components/Footer";
-import MainPage from "./pages/MainPage";
-import Header from "./components/Header/Header";
-import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
-import CategoryPage from "./pages/CategoryPage";
-import ProductDetailPage from "./pages/ProductDetailPage";
-import CheckOutPage from "./pages/CheckOutPage";
-import LoginPage from "./pages/LoginPage";
-import ContactPage from "./pages/ContactPage";
+import './App.css';
+import Footer from './components/Footer';
+import MainPage from './pages/MainPage';
+import Header from './components/Header/Header';
+import { BrowserRouter, Redirect, Switch, Route } from 'react-router-dom';
+import CategoryPage from './pages/CategoryPage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import CheckOutPage from './pages/CheckOutPage';
+import LoginPage from './pages/LoginPage';
+import ContactPage from './pages/ContactPage';
+import SearchPage from './pages/SearchPage';
 
-export const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
+export const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
 
     // These options are needed to round to whole numbers if that's what you want.
     //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
@@ -27,10 +28,8 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={MainPage} />
                     <Route path="/cat/:catName" component={CategoryPage} />
-                    <Route
-                        path="/product/:productId"
-                        component={ProductDetailPage}
-                    />
+                    <Route path="/search" component={SearchPage} />
+                    <Route path="/product/:productId" component={ProductDetailPage} />
                     <Route exact path="/checkout" component={CheckOutPage} />
                     <Route exact path="/login" component={LoginPage} />
                     <Route exact path="/contact" component={ContactPage} />
