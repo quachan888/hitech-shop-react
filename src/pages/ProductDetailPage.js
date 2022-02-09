@@ -6,29 +6,33 @@ import ProductsList from '../components/ProductsList';
 import { formatter } from '../App';
 import LoadingSpinner from '../components/LoadingSpinner';
 import MetaData from '../components/MetaData';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedProduct } from '../redux/actions';
 
 function ProductDetailPage() {
-    const [product, setProduct] = useState();
-    const [productRelated, setProductRelated] = useState();
+    const dispatch = useDispatch();
+    const product = useSelector((state) => state.selectedProduct);
+    const [productRelated, setProductRelated] = useState([]);
     const { productId } = useParams();
 
+    const fetchProductDetail = async (pid) => {
+        const response = await axios.get(`https://fakestoreapi.com/products/${pid}`).catch((err) => console.error(err));
+        // fetchProductsSameCategory(response.data);
+        dispatch(setSelectedProduct(response.data));
+    };
+
+    const fetchProductsSameCategory = async (product) => {
+        const response = await axios
+            .get(`https://fakestoreapi.com/products/category/${product.category}?limit=4`)
+            .catch((err) => console.error(err));
+        // console.log('fetchProductsSameCategory', response.data);
+        setProductRelated(response.data);
+    };
+
     useEffect(() => {
-        // Fetch 1: get product detail
-        const fetchData = async () => {
-            const product = await fetch(`https://fakestoreapi.com/products/${productId}`);
-            const productJSON = await product.json();
-
-            // Fetch 2:  Get related product from this product category
-            const relatedProducts = await fetch(
-                `https://fakestoreapi.com/products/category/${productJSON.category}?limit=4`
-            );
-            const products = await relatedProducts.json();
-            setProductRelated(products);
-            setProduct(productJSON);
-        };
-
-        fetchData().catch(console.error);
-    }, [productId]);
+        fetchProductDetail(productId);
+    }, []);
 
     if (product) {
         const bestSellerBadge =
@@ -51,8 +55,8 @@ function ProductDetailPage() {
                             {product.category[0].toUpperCase() + product.category.slice(1)}
                         </MDBBadge>
                         {bestSellerBadge}
-                        <h2 className="my-3">{formatter.format(product.price)}</h2>
-                        <h4 className="text-primary">{product.title}</h4>
+                        <h4 className="my-3">{product.title}</h4>
+                        <h2 className="my-3 text-secondary">{formatter.format(product.price)}</h2>
                         <div className="row fs-5 my-3 fw-bold">Description</div>
                         <p>{product.description[0].toUpperCase() + product.description.slice(1)}</p>
                         <MDBRow tag="form" className="gy-2 gx-3 align-items-center">
@@ -66,10 +70,10 @@ function ProductDetailPage() {
                         </MDBRow>
                     </div>
                 </div>
-                <hr />
+                {/* <hr /> */}
                 {/* Show related product */}
-                <h3 className="text-secondary px-3">Products related to this item</h3>
-                <ProductsList products={productRelated} />
+                {/* <h3 className="text-secondary px-3">Products related to this item</h3>
+                <ProductsList products={productRelated} /> */}
             </div>
         );
     }

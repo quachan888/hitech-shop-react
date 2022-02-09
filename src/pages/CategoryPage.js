@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -5,18 +6,20 @@ import MetaData from '../components/MetaData';
 import ProductsList from '../components/ProductsList';
 
 function CategoryPage() {
-    const [productsByCat, setProducts] = useState([]);
+    const [productsByCat, setProductsByCat] = useState([]);
     const { catName } = useParams();
     const catTitle = catName[0].toUpperCase() + catName.slice(1);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await fetch(`https://fakestoreapi.com/products/category/${catName}`);
-            const json = await data.json();
-            setProducts(json);
-        };
+    const fetchProductsByCategory = async (catID) => {
+        const response = await axios
+            .get(`https://fakestoreapi.com/products/category/${catID}`)
+            .catch((err) => console.error(err));
+        console.log(response.data);
+        setProductsByCat(response.data);
+    };
 
-        fetchData().catch(console.error);
+    useEffect(() => {
+        fetchProductsByCategory(catName);
     }, []);
 
     if (productsByCat) {

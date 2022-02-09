@@ -1,21 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import ProductsList from '../components/ProductsList';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Hero from '../components/Header/Hero';
 import MetaData from '../components/MetaData';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProducts } from '../redux/actions';
 
 function MainPage() {
-    const [products, setProducts] = useState([]);
+    // const [products, setProducts] = useState([]);
+    const products = useSelector((state) => state.products);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        // Fetch all products data from FakeStoreAPI
-        const getData = async () => {
-            const data = await fetch('https://fakestoreapi.com/products');
-            const json = await data.json();
-            setProducts(json);
-        };
-        getData().catch(console.error);
+        fetchProducts();
     }, []);
+
+    const fetchProducts = async () => {
+        const response = await axios.get('https://fakestoreapi.com/products').catch((err) => console.error(err));
+        // console.log(response.data);
+        dispatch(setProducts(response.data));
+    };
 
     if (products) {
         return (
