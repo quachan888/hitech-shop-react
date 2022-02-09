@@ -1,6 +1,6 @@
 import { MDBBadge } from 'mdb-react-ui-kit';
 import React, { useEffect, useState } from 'react';
-import { MDBInput, MDBRow, MDBCol, MDBBtn, MDBSpinner } from 'mdb-react-ui-kit';
+import { MDBInput, MDBRow, MDBCol, MDBBtn } from 'mdb-react-ui-kit';
 import { useParams } from 'react-router-dom';
 import ProductsList from '../components/ProductsList';
 import { formatter } from '../App';
@@ -44,12 +44,7 @@ function ProductDetailPage() {
                 <MetaData title={`${product.title}`} />
                 <div className="row m-3">
                     <div className="col-md-6 mb-4 p-5 text-center">
-                        <img
-                            src={product.image}
-                            alt={product.title}
-                            className="img-fluid"
-                            style={{ height: 400, maxHeight: '400' }}
-                        />
+                        <img src={product.image} alt={product.title} className="img-fluid" style={{ maxHeight: 300 }} />
                     </div>
                     <div className="col my-5">
                         <MDBBadge color="warning">
